@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from repairCarApp.views import index, repairs
+from repairCarApp.views import index, repairs, edit_repair
 from django.conf import settings
 from django.contrib.auth import views
 from django.conf.urls.static import static
@@ -25,5 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', index, name="index"),
     path('repairs/', repairs, name="repairs"),
+    path('repair/edit/<id>/', edit_repair, name="edit repair"),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
